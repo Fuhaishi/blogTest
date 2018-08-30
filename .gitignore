@@ -3,4 +3,4 @@
 #忽略以.iml结尾的文件
 *.iml
 #忽略node_module文件夹
-node_modules
+node_modules/
