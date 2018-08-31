@@ -6,7 +6,7 @@
     export default {
         data(){
             return {
-                content: '文本内容'
+                content: '三人行网站'
             }
         }
     }
