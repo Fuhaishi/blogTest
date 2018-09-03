@@ -12,6 +12,7 @@ const config = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './dist/')
     },
+    mode: process.env.NODE_ENV,
     module: {
         rules: [
             // ... other rules
@@ -43,12 +44,7 @@ const config = {
                 use: [
                     'style-loader',
                     'css-loader',
-                    // {
-                    //     loader: 'postcss-loader',
-                    //     options: {
-                    //         sourceMap: true
-                    //     }
-                    // },
+                    { loader: 'postcss-loader', options: { sourceMap: true } },
                     'stylus-loader'
                 ]
             },
@@ -72,6 +68,7 @@ const config = {
 }
 
 if(isDev){
+    console.log( 'sdsadad')
     config.devtool = '#cheap-module-eval-source-map'
     config.devServer = {
         port: 8000,
@@ -81,7 +78,6 @@ if(isDev){
         },
         hot: true
     }
-    config.mode = process.env.NODE_ENV
     config.plugins.push(new webpack.HotModuleReplacementPlugin())
     config.plugins.push(new webpack.NoEmitOnErrorsPlugin())
 }
