@@ -12,7 +12,7 @@ const config = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './dist/')
     },
-    mode: process.env.NODE_ENV,
+    mode: process.env.NOENV,
     module: {
         rules: [
             // ... other rules
@@ -62,13 +62,14 @@ const config = {
             }
         }),
         new htmlWebpackPlugin({
-            title: '三人行'
+            title: '三人行',
+            template: './index.html',
+            inject: true
         })
     ]
 }
 
 if(isDev){
-    console.log( 'sdsadad')
     config.devtool = '#cheap-module-eval-source-map'
     config.devServer = {
         port: 8000,
